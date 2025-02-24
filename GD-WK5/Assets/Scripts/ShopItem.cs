@@ -36,6 +36,6 @@ public class ShopItem : MonoBehaviour
 
     void BuyItem()
     {
-  
+        GoldManager.Instance.SpendGold(basePrice);
     }
 }

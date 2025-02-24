@@ -817,7 +817,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 488, y: 292}
+  m_AnchoredPosition: {x: 440, y: 292}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &976886863
@@ -1328,6 +1328,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1560900411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1560900413}
+  - component: {fileID: 1560900412}
+  m_Layer: 0
+  m_Name: GoldManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1560900412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560900411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af793f0e53dff4af8938d1add77c68eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gold: 100
+--- !u!4 &1560900413
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560900411}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 731.25494, y: 425.0354, z: -0.55337757}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1565297901 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7448633562593629978, guid: 993fdc0f857d742bc90a9cdb8458d506, type: 3}
@@ -1538,8 +1583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ca21673a392e497cbbf0ced4576959b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCoinsText: {fileID: 0}
-  playerStatsText: {fileID: 0}
+  playerGoldText: {fileID: 976886863}
   shopItems:
   - {fileID: 1094357500}
   - {fileID: 1271763827}
@@ -1819,3 +1863,4 @@ SceneRoots:
   - {fileID: 415662087}
   - {fileID: 1847868505}
   - {fileID: 1905249596}
+  - {fileID: 1560900413}
