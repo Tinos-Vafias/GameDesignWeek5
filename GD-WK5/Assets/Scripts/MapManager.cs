@@ -3,7 +3,7 @@ using UnityEngine.Tilemaps;
 
 public class MapGenerator : MonoBehaviour
 {
-    [SerializeField] private int width = 40;
+    [SerializeField] private int width = 60;
     [SerializeField] private int height = 50;
     [SerializeField] private Tilemap tilemap;
     [SerializeField] private TileBase dirtTile;
@@ -11,7 +11,7 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private TileBase[] mineralTiles;
 
     [SerializeField] private float noiseScale = 5f; // Now used for clustering!
-    [SerializeField] private float mineralThreshold = 0.3f; // Controls how much mineral spawns
+    [SerializeField] private float mineralThreshold = 0.01f; // Controls how much mineral spawns
 
     [SerializeField] private int minClusters = 3;
     [SerializeField] private int maxClusters = 6;
