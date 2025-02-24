@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6575831557341954355}
   m_Layer: 0
   m_Name: RightHurtbox
-  m_TagString: Untagged
+  m_TagString: Shovel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 8940715248560443719}
   m_Layer: 0
   m_Name: LeftHurtbox
-  m_TagString: Untagged
+  m_TagString: Shovel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 9015351878798111620}
   m_Layer: 0
   m_Name: DownHurtbox
-  m_TagString: Untagged
+  m_TagString: Shovel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 2718735968563650481}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -581,6 +581,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 514aac60e27effa429b9289f6a7eed4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 5
+  damage: 1
   rb: {fileID: 7848294599770295288}
 --- !u!114 &2718735968563650481
 MonoBehaviour:
