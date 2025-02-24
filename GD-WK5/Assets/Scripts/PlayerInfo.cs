@@ -1,12 +1,14 @@
 using System;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerInfo : MonoBehaviour
 {
 
     private float horizontal;
     private float speed = 8f;
-    private bool isFacingRight = true;
+    public int health = 5;
+    public int damage = 5;
+    
     
     [SerializeField] private Rigidbody2D rb;
     
@@ -20,8 +22,8 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
-        
-        Flip();
+
+
     }
 
     private void FixedUpdate()
@@ -29,14 +31,13 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocity = new Vector3(horizontal * speed, rb.linearVelocity.y);
     }
 
-    private void Flip()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1;
-            transform.localScale = localScale;
+            enemyAttack enemyAttack = collision.gameObject.GetComponent<enemyAttack>();
+            health -= enemyAttack.damage;
+            Debug.Log("Current Health: " + health);
         }
     }
 }
