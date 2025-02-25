@@ -5,6 +5,9 @@ public class TileDestruction : MonoBehaviour
 {
     [SerializeField] private Tilemap tilemap;  // Reference to the Tilemap
     [SerializeField] private TileBase emptyTile; // Tile to replace with (empty space)
+    [SerializeField] private TileBase ironOre;
+    [SerializeField] private TileBase goldOre;
+
 
     void Update()
     {
@@ -25,20 +28,23 @@ public class TileDestruction : MonoBehaviour
         TileBase tileAtPosition = tilemap.GetTile(cellPos);
 
         // If there's a tile, destroy it
-        // TODO: add gold and iron increase
         if (tileAtPosition != null)
         {
 
             // Determine resource type
-            if (tileAtPosition == ironOreTile)
+            if (tileAtPosition == ironOre)
             {
+                Debug.Log("mine iron ore");
                 PlayerManager.Instance.AddResource("Iron", 1);
             }
-            else if (tileAtPosition == goldOreTile)
+            else if (tileAtPosition == goldOre)
             {
+                Debug.Log("mine gold ore");
                 PlayerManager.Instance.AddResource("Gold", 1);
             }
+
             tilemap.SetTile(cellPos, null);  // Replace with empty tile
+            Debug.Log("Tile removed from map.");
         }
     }
 }
