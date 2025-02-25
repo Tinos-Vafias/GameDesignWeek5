@@ -28,6 +28,16 @@ public class TileDestruction : MonoBehaviour
         // TODO: add gold and iron increase
         if (tileAtPosition != null)
         {
+
+            // Determine resource type
+            if (tileAtPosition == ironOreTile)
+            {
+                PlayerManager.Instance.AddResource("Iron", 1);
+            }
+            else if (tileAtPosition == goldOreTile)
+            {
+                PlayerManager.Instance.AddResource("Gold", 1);
+            }
             tilemap.SetTile(cellPos, null);  // Replace with empty tile
         }
     }
