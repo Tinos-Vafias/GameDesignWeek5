@@ -25,6 +25,7 @@ public class TileDestruction : MonoBehaviour
         TileBase tileAtPosition = tilemap.GetTile(cellPos);
 
         // If there's a tile, destroy it
+        // TODO: add gold and iron increase
         if (tileAtPosition != null)
         {
             tilemap.SetTile(cellPos, null);  // Replace with empty tile
