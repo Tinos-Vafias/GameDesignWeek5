@@ -3,23 +3,30 @@ using UnityEngine.Tilemaps;
 
 public class MapGenerator : MonoBehaviour
 {
-    [SerializeField] private int width = 60;
-    [SerializeField] private int height = 50;
+    [SerializeField] private int width = 100;
+    [SerializeField] private int height = 100;
     [SerializeField] private Tilemap tilemap;
     [SerializeField] private TileBase dirtTile;
     [SerializeField] private TileBase stoneTile;
     [SerializeField] private TileBase[] mineralTiles;
 
-    [SerializeField] private float noiseScale = 5f; // Now used for clustering!
-    [SerializeField] private float mineralThreshold = 0.01f; // Controls how much mineral spawns
+    [SerializeField] private float noiseScale = 9f; 
+    [SerializeField] private float mineralThreshold = 0.1f; 
 
-    [SerializeField] private int minClusters = 3;
-    [SerializeField] private int maxClusters = 6;
+    [SerializeField] private int minClusters = 20;
+    [SerializeField] private int maxClusters = 30;
     [SerializeField] private int minClusterSize = 5;
     [SerializeField] private int maxClusterSize = 15;
 
+    [SerializeField] private float caveThreshold = 0.3f; 
+    [SerializeField] private float caveScale = 0.1f; 
+    [SerializeField] private int caveOffsetX = 0;
+    [SerializeField] private int caveOffsetY = 0;
+
     private void Start()
     {
+        caveOffsetX = Random.Range(0, 10000);
+        caveOffsetY = Random.Range(0, 10000);
         GenerateMap();
     }
 
@@ -36,6 +43,7 @@ public class MapGenerator : MonoBehaviour
         }
 
         GenerateMinerals();
+        GenerateCaves();
     }
 
     private void GenerateMinerals()
@@ -82,4 +90,23 @@ public class MapGenerator : MonoBehaviour
             }
         }
     }
+
+    void GenerateCaves()
+    {
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                // Generate Perlin noise value
+                float perlinValue = Mathf.PerlinNoise((x + caveOffsetX) * caveScale, (y + caveOffsetY) * caveScale);
+
+                // If the noise value is below the threshold, carve out a cave
+                if (perlinValue < caveThreshold)
+                {
+                    tilemap.SetTile(new Vector3Int(x, y, 0), null);
+                }
+            }
+        }
+    }
+
 }

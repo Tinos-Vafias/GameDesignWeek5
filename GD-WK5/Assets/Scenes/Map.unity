@@ -266,20 +266,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f452a63bcc2033488fd67f5c3aebdde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 60
-  height: 50
+  width: 100
+  height: 100
   tilemap: {fileID: 2125043617}
   dirtTile: {fileID: 11400000, guid: 32cdcafa3ee21a84f8dbb0c9e0156dd1, type: 2}
   stoneTile: {fileID: 11400000, guid: fc4acc46799509c4292fff89cbb213fd, type: 2}
   mineralTiles:
   - {fileID: 11400000, guid: 457601fdaa128da43a142d6548e61626, type: 2}
   - {fileID: 11400000, guid: 059979ea8dab1b949a78759c2628c41b, type: 2}
-  noiseScale: 5
-  mineralThreshold: 0.01
-  minClusters: 3
-  maxClusters: 6
+  noiseScale: 9
+  mineralThreshold: 0.1
+  minClusters: 20
+  maxClusters: 30
   minClusterSize: 5
   maxClusterSize: 15
+  caveThreshold: 0.3
+  caveScale: 0.1
+  caveOffsetX: 0
+  caveOffsetY: 0
 --- !u!1 &403498492
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,8 +1100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoomSpeed: 2
-  minZoom: 3
-  maxZoom: 10
+  minZoom: 7
+  maxZoom: 15
 --- !u!1 &2124192077
 GameObject:
   m_ObjectHideFlags: 0
