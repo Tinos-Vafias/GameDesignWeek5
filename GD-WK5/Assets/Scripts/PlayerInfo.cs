@@ -1,4 +1,5 @@
 using System;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerInfo : MonoBehaviour
@@ -22,13 +23,18 @@ public class PlayerInfo : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
-
-
+        if (Input.GetKeyDown(KeyCode.H))
+                {
+                    TakeDamage(1);  // Lose 1 health each press
+                }
     }
 
-    private void FixedUpdate()
+    public void TakeDamage(int amount)
     {
-        rb.linearVelocity = new Vector3(horizontal * speed, rb.linearVelocity.y);
+        health -= amount;
+        Debug.Log("Current Health: " + health);
+
+        if (health <= 0) SceneManager.LoadScene("ShopScene");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -36,8 +42,12 @@ public class PlayerInfo : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             enemyAttack enemyAttack = collision.gameObject.GetComponent<enemyAttack>();
-            health -= enemyAttack.damage;
-            Debug.Log("Current Health: " + health);
+            TakeDamage(enemyAttack.damage);
         }
+    }
+
+    private void FixedUpdate()
+    {
+        rb.linearVelocity = new Vector3(horizontal * speed, rb.linearVelocity.y);
     }
 }
