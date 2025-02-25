@@ -153,8 +153,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -337, y: 292}
-  m_SizeDelta: {x: 500, y: 50}
+  m_AnchoredPosition: {x: -138, y: 292}
+  m_SizeDelta: {x: 900, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &41658967
 MonoBehaviour:
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Upgrades
+  m_text: You died... Try buying some upgrades?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -0.00012207031, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -531,7 +531,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 437, y: -293}
+  m_AnchoredPosition: {x: 437, y: -257}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &315307316
@@ -1017,7 +1017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9204893801644620851, guid: 993fdc0f857d742bc90a9cdb8458d506, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 105
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 9204893801644620851, guid: 993fdc0f857d742bc90a9cdb8458d506, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1130,7 +1130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9204893801644620851, guid: 993fdc0f857d742bc90a9cdb8458d506, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -121
+      value: -107
       objectReference: {fileID: 0}
     - target: {fileID: 9204893801644620851, guid: 993fdc0f857d742bc90a9cdb8458d506, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1307,7 +1307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9204893801644620851, guid: 993fdc0f857d742bc90a9cdb8458d506, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -121
+      value: -107
       objectReference: {fileID: 0}
     - target: {fileID: 9204893801644620851, guid: 993fdc0f857d742bc90a9cdb8458d506, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1845,7 +1845,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9204893801644620851, guid: 993fdc0f857d742bc90a9cdb8458d506, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 105
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 9204893801644620851, guid: 993fdc0f857d742bc90a9cdb8458d506, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

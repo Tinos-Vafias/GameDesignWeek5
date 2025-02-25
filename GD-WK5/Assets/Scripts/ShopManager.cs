@@ -48,7 +48,6 @@ public class ShopManager : MonoBehaviour
 
     public void GoToNextScene()
     {
-        Debug.Log("here");
         SceneManager.LoadScene("Map"); 
     }
 }
