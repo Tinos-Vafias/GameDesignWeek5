@@ -383,8 +383,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 208717418545446224, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 208717418545446224, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 208717418545446224, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 208717418545446224, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1784263982738543291, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
       propertyPath: m_LocalPosition.x
@@ -426,10 +438,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1910059128878960030, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1910059128878960030, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1910059128878960030, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1910059128878960030, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2145995542799053531, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
       propertyPath: tilemap
       value: 
       objectReference: {fileID: 2125043617}
+    - target: {fileID: 2634058927919828555, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
+      propertyPath: maxFlyTime
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634058927919828555, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
+      propertyPath: jetpackForce
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4198154395488126488, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
       propertyPath: tilemap
       value: 
