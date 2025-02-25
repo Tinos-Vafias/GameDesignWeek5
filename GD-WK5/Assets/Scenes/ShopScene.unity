@@ -577,7 +577,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 315307317}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1905249597}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: GoToNextScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ShopManager.GoToNextScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &315307317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -795,7 +807,7 @@ GameObject:
   - component: {fileID: 976886864}
   - component: {fileID: 976886863}
   m_Layer: 5
-  m_Name: GoldText
+  m_Name: CoinsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1005,7 +1017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9204893801644620851, guid: 993fdc0f857d742bc90a9cdb8458d506, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 148
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 9204893801644620851, guid: 993fdc0f857d742bc90a9cdb8458d506, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1118,7 +1130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9204893801644620851, guid: 993fdc0f857d742bc90a9cdb8458d506, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -78
+      value: -121
       objectReference: {fileID: 0}
     - target: {fileID: 9204893801644620851, guid: 993fdc0f857d742bc90a9cdb8458d506, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1295,7 +1307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9204893801644620851, guid: 993fdc0f857d742bc90a9cdb8458d506, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -78
+      value: -121
       objectReference: {fileID: 0}
     - target: {fileID: 9204893801644620851, guid: 993fdc0f857d742bc90a9cdb8458d506, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1337,27 +1349,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1560900413}
-  - component: {fileID: 1560900412}
+  - component: {fileID: 1560900414}
   m_Layer: 0
-  m_Name: GoldManager
+  m_Name: CoinManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1560900412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560900411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af793f0e53dff4af8938d1add77c68eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gold: 100
 --- !u!4 &1560900413
 Transform:
   m_ObjectHideFlags: 0
@@ -1373,6 +1372,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1560900414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560900411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af793f0e53dff4af8938d1add77c68eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coin: 100
 --- !u!114 &1565297901 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7448633562593629978, guid: 993fdc0f857d742bc90a9cdb8458d506, type: 3}
@@ -1583,7 +1595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ca21673a392e497cbbf0ced4576959b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerGoldText: {fileID: 976886863}
+  playerCoinsText: {fileID: 976886863}
   shopItems:
   - {fileID: 1094357500}
   - {fileID: 1271763827}
@@ -1833,7 +1845,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9204893801644620851, guid: 993fdc0f857d742bc90a9cdb8458d506, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 148
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 9204893801644620851, guid: 993fdc0f857d742bc90a9cdb8458d506, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

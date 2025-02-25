@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class GoldManager : MonoBehaviour
+public class CoinManager : MonoBehaviour
 {
-    public static GoldManager Instance { get; private set; }
-    public int gold = 100;
+    public static CoinManager Instance { get; private set; }
+    public int coin = 100;
 
     private void Awake()
     {
@@ -18,23 +18,23 @@ public class GoldManager : MonoBehaviour
         }
     }
 
-    public bool SpendGold(int amount)
+    public bool SpendCoins(int amount)
     {
-        if (gold >= amount)
+        if (coin >= amount)
         {
-            gold -= amount;
+            coin -= amount;
             return true;
         }
         return false;
     }
 
-    public void EarnGold(int amount)
+    public void EarnCoins(int amount)
     {
-        gold += amount;
+        coin += amount;
     }
 
-    public int GetGold()
+    public int GetCoins()
     {
-        return gold;
+        return coin;
     }
 }

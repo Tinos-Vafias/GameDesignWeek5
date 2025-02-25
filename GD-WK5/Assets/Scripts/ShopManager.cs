@@ -1,11 +1,26 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class ShopManager : MonoBehaviour
 {
-    public TMP_Text playerGoldText;
+    public static ShopManager Instance { get; private set; }  
+
+    public TMP_Text playerCoinsText;
     public ShopItem[] shopItems; 
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject); 
+        }
+    }
 
     void Start()
     {
@@ -13,27 +28,27 @@ public class ShopManager : MonoBehaviour
         SetupShopItems();
     }
 
-    void UpdateUI()
+    public void UpdateUI()
     {
-        updateGold();
+        UpdateCoins();
     }
 
     void SetupShopItems()
     {
-        // TODO replace temp functions with actual upgrade functions
         shopItems[0].Setup("Shovel Strength", "Increases shovel strength", 20);
         shopItems[1].Setup("Shovel Range", "Increase shovel radius", 15);
         shopItems[2].Setup("Jetpack Strength", "Increase jetpack vertical strength", 25);
         shopItems[3].Setup("Light Range", "Increase light radius", 30);
-
-        // shopItems[0].Setup("Shovel Strength", "Increases shovel strength", 20, () => {return temp_val*1;}, () => (Debug.Log("upgraded shovel strength")));
-        // shopItems[1].Setup("Shovel Range", "Increase shovel radius", 15, () => (1), () => (Debug.Log("upgraded shovel range")));
-        // shopItems[2].Setup("Jetpack Strength", "Increase jetpack vertical strength", 25, () => (1), () => (Debug.Log("upgraded jetpack strength")));
-        // shopItems[3].Setup("Light Range", "Increase light radius", 30, () => (1), () => (Debug.Log("upgraded light range")));
     }
 
-    void updateGold() 
+    void UpdateCoins() 
     {
-        playerGoldText.text = $"{GoldManager.Instance.GetGold()} G";
+        playerCoinsText.text = $"${CoinManager.Instance.GetCoins()}";
+    }
+
+    public void GoToNextScene()
+    {
+        Debug.Log("here");
+        SceneManager.LoadScene("Map"); 
     }
 }

@@ -9,17 +9,19 @@ public class ShopItem : MonoBehaviour
     public TMP_Text itemPriceText;  
     public Button buyButton;
 
-    private int basePrice;
+    private int price;
     private int upgradeLevel;
     private System.Func<int> getUpgradeLevel;
     private System.Action onPurchase;
 
     // public void Setup(string name, string description, int basePrice, System.Func<int> getUpgradeLevel, System.Action purchaseCallback)
-    public void Setup(string name, string description, int basePrice)
+    public void Setup(string name, string description, int price)
     {
         itemNameText.text = name;
         itemDescriptionText.text = description;
-        this.basePrice = basePrice;
+        itemPriceText.text = $"${price}";
+
+        this.price = price;
         // this.getUpgradeLevel = getUpgradeLevel;
         // onPurchase = purchaseCallback;
 
@@ -29,13 +31,12 @@ public class ShopItem : MonoBehaviour
 
     void UpdatePrice()
     {
-        int currentLevel = getUpgradeLevel();
-        int price = basePrice + (currentLevel * 10);  // Example: Price increases by 10 per level
-        itemPriceText.text = price.ToString() + " Coins";
+        
     }
 
     void BuyItem()
     {
-        GoldManager.Instance.SpendGold(basePrice);
+        CoinManager.Instance.SpendCoins(price);
+        ShopManager.Instance.UpdateUI();
     }
 }
