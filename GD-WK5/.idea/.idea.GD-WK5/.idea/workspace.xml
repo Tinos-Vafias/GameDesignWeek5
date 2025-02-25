@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97b0d1e1-ac68-4082-8eda-ca8c2204ac7f" name="Changes" comment="" />
+    <list default="true" id="97b0d1e1-ac68-4082-8eda-ca8c2204ac7f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GD-WK5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD-WK5/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ShopScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ShopScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Digging.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Digging.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Hurtboxes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Hurtboxes.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourceUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourceUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ShopItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ShopItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ShopManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ShopManager.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,6 +98,7 @@
       <updated>1740179050676</updated>
       <workItem from="1740179052219" duration="314000" />
       <workItem from="1740431509502" duration="6660000" />
+      <workItem from="1740509677755" duration="5564000" />
     </task>
     <servers />
   </component>

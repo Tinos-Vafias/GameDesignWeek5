@@ -8,6 +8,7 @@ public class ResourceUI : MonoBehaviour
 
     private void Update()
     {
-        goldText.text = "Coins: " + PlayerManager.Instance.GetResourceAmount("Gold");
+        //keep receiving errors
+        //goldText.text = "Coins: " + PlayerManager.Instance.GetResourceAmount("Gold");
     }
 }

@@ -8,7 +8,7 @@ public class PlayerInfo : MonoBehaviour
     private float horizontal;
     private float speed = 8f;
     public int health = 5;
-    public int damage = 5;
+    public int damage = 1;
     
     
     [SerializeField] private Rigidbody2D rb;
@@ -24,9 +24,9 @@ public class PlayerInfo : MonoBehaviour
     {
         horizontal = Input.GetAxis("Horizontal");
         if (Input.GetKeyDown(KeyCode.H))
-                {
-                    TakeDamage(1);  // Lose 1 health each press
-                }
+        {
+            TakeDamage(1);  // Lose 1 health each press
+        }
     }
 
     public void TakeDamage(int amount)
@@ -49,5 +49,11 @@ public class PlayerInfo : MonoBehaviour
     private void FixedUpdate()
     {
         rb.linearVelocity = new Vector3(horizontal * speed, rb.linearVelocity.y);
+    }
+
+    public void UpgradeDamage()
+    {
+        damage++;
+        Debug.Log("Damage Upgraded: " + damage);
     }
 }

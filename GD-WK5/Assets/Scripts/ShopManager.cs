@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class ShopManager : MonoBehaviour
 {
     public static ShopManager Instance { get; private set; }  
-
+    
     public TMP_Text playerCoinsText;
     public ShopItem[] shopItems; 
-
+    
+    public PlayerInfo playerInfo;
+    public Hurtboxes hurtboxes;
     void Awake()
     {
         if (Instance == null)
@@ -26,6 +28,7 @@ public class ShopManager : MonoBehaviour
     {
         UpdateUI();
         SetupShopItems();
+        
     }
 
     public void UpdateUI()
@@ -35,10 +38,10 @@ public class ShopManager : MonoBehaviour
 
     void SetupShopItems()
     {
-        shopItems[0].Setup("Shovel Strength", "Increases shovel strength", 20);
-        shopItems[1].Setup("Shovel Range", "Increase shovel radius", 15);
-        shopItems[2].Setup("Jetpack Strength", "Increase jetpack vertical strength", 25);
-        shopItems[3].Setup("Light Range", "Increase light radius", 30);
+        shopItems[0].Setup("Shovel Strength", "Increases shovel strength", 20, 1, playerInfo.UpgradeDamage);
+        shopItems[1].Setup("Shovel Range", "Increase shovel radius", 15, 1, hurtboxes.UpgradeRange);
+        shopItems[2].Setup("Jetpack Strength", "Increase jetpack vertical strength", 25, 2, playerInfo.UpgradeDamage);
+        shopItems[3].Setup("Light Range", "Increase light radius", 30, 2, playerInfo.UpgradeDamage);
 
         // example shop item setup when you have upgrade functions
         // shopItems[0].Setup(
@@ -46,7 +49,7 @@ public class ShopManager : MonoBehaviour
         //     "Increases shovel strength", // description
         //     Player.Instance.GetShovelStrengthPrice(), // current price, if level 1 may be 10, if level 2 may be 100 
         //     Player.Instance.GetShovelStrengthLevel(), // current level, helps shop item stop player from buying past max level
-        //     () => Player.Instance.UpgradeShovelStrength()); // method to be called after purcahse. should upgrade stats
+        //     () => Player.Instance.UpgradeShovelStrength()); // method to be called after purchase. should upgrade stats
     }
 
     void UpdateCoins() 
