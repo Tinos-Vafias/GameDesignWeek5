@@ -208,7 +208,7 @@ Canvas:
   m_GameObject: {fileID: 29401191}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 1987445926}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -336,7 +336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 606349754}
   - component: {fileID: 606349753}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1126,7 +1126,7 @@ GameObject:
   - component: {fileID: 2125043618}
   - component: {fileID: 2125043620}
   - component: {fileID: 2125043619}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
