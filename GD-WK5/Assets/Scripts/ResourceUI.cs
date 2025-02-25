@@ -8,7 +8,6 @@ public class ResourceUI : MonoBehaviour
 
     private void Update()
     {
-        ironText.text = "Iron: " + PlayerManager.Instance.GetResourceAmount("Iron");
-        goldText.text = "Gold: " + PlayerManager.Instance.GetResourceAmount("Gold");
+        goldText.text = "Coins: " + PlayerManager.Instance.GetResourceAmount("Gold");
     }
 }
