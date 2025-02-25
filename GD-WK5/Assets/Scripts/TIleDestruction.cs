@@ -3,6 +3,7 @@ using UnityEngine.Tilemaps;
 
 public class TileDestruction : MonoBehaviour
 {
+    [SerializeField] private Transform player;
     [SerializeField] private Tilemap tilemap;  // Reference to the Tilemap
     [SerializeField] private TileBase emptyTile; // Tile to replace with (empty space)
     [SerializeField] private TileBase ironOre;
@@ -14,21 +15,23 @@ public class TileDestruction : MonoBehaviour
         // Check if the player input
         if (Input.GetMouseButtonDown(0))  // Left mouse button
         {
-            DestroyTileAtMousePosition();
+            mineTile();
         }
     }
 
-    void DestroyTileAtMousePosition()
+    void mineTile()
     {
         // Convert mouse position to world position
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3Int cellPos = tilemap.WorldToCell(worldPos);  // Convert world position to tile cell position
+        Vector3Int playerTilePosition = tilemap.WorldToCell(player.position);
 
         // Get the tile at the position
         TileBase tileAtPosition = tilemap.GetTile(cellPos);
 
         // If there's a tile, destroy it
-        if (tileAtPosition != null)
+        if (Mathf.Abs(cellPos.x - playerTilePosition.x) <= 1 &&
+            Mathf.Abs(cellPos.y - playerTilePosition.y) <= 1)
         {
 
             // Determine resource type
