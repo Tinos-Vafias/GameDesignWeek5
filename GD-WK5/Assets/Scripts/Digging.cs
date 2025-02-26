@@ -20,24 +20,38 @@ public class Digging : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Only proceed if this hurtbox is active.
         if (!gameObject.activeSelf)
             return;
-        
-        // Here you can optionally check that the collision is with your Tilemap object,
-        // for example by checking collision.gameObject.CompareTag("Tilemap") if you set a tag.
-        // For this example, we assume any collision should trigger tile destruction.
 
-        // Use the hurtbox's position as the collision point.
-        Vector3 collisionPoint = transform.position;
-        Vector3Int cellPos = tilemap.WorldToCell(collisionPoint);
-        TileBase tileAtPosition = tilemap.GetTile(cellPos);
+        // Get the hurtbox's own collider
+        Collider2D col = GetComponent<Collider2D>();
+        if (col == null)
+            return;
 
-        // If there's a tile at that cell, remove it.
-        if (tileAtPosition != null)
+        // Get the world bounds of the hurtbox
+        Bounds bounds = col.bounds;
+
+        // Convert the bounds' minimum and maximum points to tilemap cell coordinates.
+        Vector3Int bottomLeftCell = tilemap.WorldToCell(bounds.min);
+        Vector3Int topRightCell = tilemap.WorldToCell(bounds.max);
+
+        // Iterate through all cells in the bounds
+        for (int x = bottomLeftCell.x; x <= topRightCell.x; x++)
         {
-            tilemap.SetTile(cellPos, null);
-            // Optionally, you could add logic here to increase gold/iron.
+            for (int y = bottomLeftCell.y; y <= topRightCell.y; y++)
+            {
+                Vector3Int cellPos = new Vector3Int(x, y, 0);
+                TileBase tileAtPosition = tilemap.GetTile(cellPos);
+
+                // If a tile exists at this cell, remove it.
+                if (tileAtPosition != null)
+                {
+                    tilemap.SetTile(cellPos, null);
+                    // Optionally, add logic here to increase gold/iron.
+                }
+            }
         }
     }
+    
+    
 }

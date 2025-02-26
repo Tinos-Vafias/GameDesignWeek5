@@ -8,15 +8,19 @@ public class PlayerInfo : MonoBehaviour
     private float horizontal;
     private float speed = 8f;
     public int health = 5;
-    public int damage = 5;
+    public int damage = 1;
     
+    public float jetpackForce = 11f;
+    public float maxFlyTime = 1.5f;
+    private float flyTimeRemaining;
     
     [SerializeField] private Rigidbody2D rb;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+        flyTimeRemaining = maxFlyTime;
     }
 
     // Update is called once per frame
@@ -24,9 +28,21 @@ public class PlayerInfo : MonoBehaviour
     {
         horizontal = Input.GetAxis("Horizontal");
         if (Input.GetKeyDown(KeyCode.H))
-                {
-                    TakeDamage(1);  // Lose 1 health each press
-                }
+        {
+            TakeDamage(1);  // Lose 1 health each press
+        }
+        
+        
+        // jetpack logic
+        if (Input.GetKey(KeyCode.UpArrow)) {
+            // Decrement the remaining fly time
+            if (flyTimeRemaining > 0) {
+                flyTimeRemaining -= Time.deltaTime;
+            }
+        }
+        else {
+            flyTimeRemaining = maxFlyTime;
+        }
     }
 
     public void TakeDamage(int amount)
@@ -48,6 +64,25 @@ public class PlayerInfo : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Movement logic
         rb.linearVelocity = new Vector3(horizontal * speed, rb.linearVelocity.y);
+        
+        // Jetpack logic
+        if (Input.GetKey(KeyCode.UpArrow) && flyTimeRemaining > 0)
+        {
+            rb.AddForce(Vector2.up * jetpackForce, ForceMode2D.Force);
+        }
+    }
+
+    public void UpgradeDamage()
+    {
+        damage++;
+        Debug.Log("Damage Upgraded: " + damage);
+    }
+    
+    public void UpgradeJetpack()
+    {
+        maxFlyTime += .5f;
+        Debug.Log("Flight time upgraded " + damage);
     }
 }

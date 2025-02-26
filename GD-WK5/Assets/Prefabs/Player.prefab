@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 208717418545446224}
   - component: {fileID: 9053070465212508341}
   - component: {fileID: 6575831557341954355}
+  - component: {fileID: 4198154395488126488}
   m_Layer: 0
   m_Name: RightHurtbox
   m_TagString: Shovel
@@ -27,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 2278990651967998118}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.352941, y: 0.35294113, z: 0}
+  m_LocalScale: {x: 1.75, y: 1.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1784263982738543291}
@@ -134,6 +135,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4198154395488126488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2278990651967998118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dabaa313f0964ad4e9cea943c408851b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 0}
+  emptyTile: {fileID: 0}
 --- !u!1 &2954288299920197388
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,6 +160,7 @@ GameObject:
   - component: {fileID: 1910059128878960030}
   - component: {fileID: 3536556367703883790}
   - component: {fileID: 8940715248560443719}
+  - component: {fileID: 2145995542799053531}
   m_Layer: 0
   m_Name: LeftHurtbox
   m_TagString: Shovel
@@ -161,8 +177,8 @@ Transform:
   m_GameObject: {fileID: 2954288299920197388}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.352941, y: 0.35294113, z: 0}
+  m_LocalScale: {x: 1.75, y: 1.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1784263982738543291}
@@ -268,6 +284,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2145995542799053531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2954288299920197388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dabaa313f0964ad4e9cea943c408851b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 0}
+  emptyTile: {fileID: 0}
 --- !u!1 &7268758559665347208
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,6 +309,7 @@ GameObject:
   - component: {fileID: 5312132753193045701}
   - component: {fileID: 253530319469811737}
   - component: {fileID: 9015351878798111620}
+  - component: {fileID: 5437452455775004020}
   m_Layer: 0
   m_Name: DownHurtbox
   m_TagString: Shovel
@@ -295,8 +326,8 @@ Transform:
   m_GameObject: {fileID: 7268758559665347208}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -1.3529412, z: 0}
+  m_LocalScale: {x: 1.75, y: 1.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1784263982738543291}
@@ -402,6 +433,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5437452455775004020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7268758559665347208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dabaa313f0964ad4e9cea943c408851b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 0}
+  emptyTile: {fileID: 0}
 --- !u!1 &8385107997521888231
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,7 +551,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c5d333903ccd0b44796d7fb679f2bb02, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

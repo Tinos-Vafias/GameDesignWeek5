@@ -1601,6 +1601,8 @@ MonoBehaviour:
   - {fileID: 1271763827}
   - {fileID: 1942269662}
   - {fileID: 1809492110}
+  playerInfo: {fileID: 2634058927919828555, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
+  hurtboxes: {fileID: 2718735968563650481, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
 --- !u!1 &1917560611
 GameObject:
   m_ObjectHideFlags: 0

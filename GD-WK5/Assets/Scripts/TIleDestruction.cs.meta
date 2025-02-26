@@ -1,2 +1,16 @@
 fileFormatVersion: 2
 guid: 564c1c0822cd0bc4d8b349fc52921c31
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - player: {instanceID: 0}
+  - tilemap: {instanceID: 0}
+  - emptyTile: {instanceID: 0}
+  - ironOre: {fileID: 11400000, guid: 457601fdaa128da43a142d6548e61626, type: 2}
+  - goldOre: {fileID: 11400000, guid: 059979ea8dab1b949a78759c2628c41b, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
