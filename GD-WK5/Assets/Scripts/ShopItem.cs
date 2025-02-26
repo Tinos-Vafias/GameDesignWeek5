@@ -24,7 +24,7 @@ public class ShopItem : MonoBehaviour
         itemNameText.text = name;
         itemDescriptionText.text = description;
     
-        if (level == MAX_LEVEL) itemPriceText.text = "MAX LEVEL";
+        if (level == MAX_LEVEL) itemPriceText.text = "MAX";
         else itemPriceText.text = $"${price}";
     
         this.price = price;
@@ -51,10 +51,8 @@ public class ShopItem : MonoBehaviour
         price *= PRICE_INCREASE_FACTOR;
 
         // uncomment later
-        if (level == MAX_LEVEL) itemPriceText.text = "MAX LEVEL";
+        if (MAX_LEVEL <= level) itemPriceText.text = "MAX";
         else itemPriceText.text = $"${price}";
-
-        itemPriceText.text = $"${price}";
     }
 
     void BuyItem()
@@ -69,9 +67,9 @@ public class ShopItem : MonoBehaviour
         {
             // uncomment this line when you have upgrade functions
             onPurchase?.Invoke();
-            level++;
-            ShopManager.Instance.UpdateUI();
+            level += 1;
             UpdatePrice();
+            ShopManager.Instance.UpdateUI();
         } 
         else
         {

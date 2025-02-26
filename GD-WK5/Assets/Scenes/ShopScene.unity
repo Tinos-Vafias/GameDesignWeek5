@@ -1384,7 +1384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af793f0e53dff4af8938d1add77c68eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin: 100
+  coin: 1000000
 --- !u!114 &1565297901 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7448633562593629978, guid: 993fdc0f857d742bc90a9cdb8458d506, type: 3}

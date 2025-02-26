@@ -3,7 +3,7 @@ using UnityEngine;
 public class CoinManager : MonoBehaviour
 {
     public static CoinManager Instance { get; private set; }
-    public int coin = 100;
+    private int coin = 1000000;
 
     private void Awake()
     {

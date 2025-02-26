@@ -41,7 +41,7 @@ public class ShopManager : MonoBehaviour
         shopItems[0].Setup("Shovel Strength", "Increases shovel strength", 20, 1, playerInfo.UpgradeDamage);
         shopItems[1].Setup("Shovel Range", "Increase shovel radius", 15, 1, hurtboxes.UpgradeRange);
         shopItems[2].Setup("Jetpack Strength", "Increase jetpack flight time", 25, 2, playerInfo.UpgradeJetpack);
-        shopItems[3].Setup("Light Range", "Increase light radius", 30, 2, playerInfo.UpgradeDamage);
+        shopItems[3].Setup("Light Range", "Increase light radius", LightManager.Instance.GetPrice(), LightManager.Instance.GetLevel(), () => LightManager.Instance.UpgradeLightRadius());
 
         // example shop item setup when you have upgrade functions
         // shopItems[0].Setup(
