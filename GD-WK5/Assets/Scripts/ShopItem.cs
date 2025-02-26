@@ -16,12 +16,13 @@ public class ShopItem : MonoBehaviour
 
     private int MAX_LEVEL = 5;
     private int level;
+    private string name;
 
     // uncomment when we have upgrade functions
     // purchaseCallback is the function to be called on purchase. this would be the "upgrade" function that updates stats after purchase
     public void Setup(string name, string description, int price, int level, System.Action purchaseCallback)
     {
-        itemNameText.text = name;
+        itemNameText.text = $"{name} lvl {level}";
         itemDescriptionText.text = description;
     
         if (level == MAX_LEVEL) itemPriceText.text = "MAX";
@@ -29,6 +30,7 @@ public class ShopItem : MonoBehaviour
     
         this.price = price;
         this.level = level;
+        this.name = name;
         onPurchase = purchaseCallback;
     
         buyButton.onClick.AddListener(BuyItem);
@@ -49,6 +51,7 @@ public class ShopItem : MonoBehaviour
     void UpdatePrice()
     {
         price *= PRICE_INCREASE_FACTOR;
+        itemNameText.text = $"{name} lvl {level}";
 
         // uncomment later
         if (MAX_LEVEL <= level) itemPriceText.text = "MAX";
