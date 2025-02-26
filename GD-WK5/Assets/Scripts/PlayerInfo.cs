@@ -14,6 +14,11 @@ public class PlayerInfo : MonoBehaviour
     public float maxFlyTime = 1.5f; // ✅ This will now be updated by JetpackManager
     private float flyTimeRemaining;
 
+    private bool isGrounded;
+    public Transform groundCheck; // Empty object to check ground
+    public LayerMask groundLayer; // Layer mask for ground detection
+    private float killzone = -5f;
+
     public int damage;
 
     [SerializeField] private Rigidbody2D rb;
@@ -27,6 +32,7 @@ public class PlayerInfo : MonoBehaviour
     private void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
         
         if (Input.GetKeyDown(KeyCode.H))
         {
@@ -41,9 +47,18 @@ public class PlayerInfo : MonoBehaviour
                 flyTimeRemaining -= Time.deltaTime;
             }
         }
-        else
+        else if (isGrounded)
         {
             flyTimeRemaining = maxFlyTime;
+        }
+
+        // Kill zone kills player
+        if (transform.position.y < killzone)
+        {
+            health -= 5;
+
+            if (health <= 0) SceneManager.LoadScene("ShopScene");
+
         }
     }
 
@@ -58,14 +73,7 @@ public class PlayerInfo : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            enemyAttack enemyAttack = collision.gameObject.GetComponent<enemyAttack>();
-            TakeDamage(enemyAttack.damage);
-        }
-    }
+
 
     private void FixedUpdate()
     {
@@ -78,4 +86,6 @@ public class PlayerInfo : MonoBehaviour
             rb.AddForce(Vector2.up * jetpackForce, ForceMode2D.Force);
         }
     }
+
+
 }
