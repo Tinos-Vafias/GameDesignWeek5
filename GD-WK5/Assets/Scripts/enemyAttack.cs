@@ -26,7 +26,7 @@ public class enemyAttack : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Shovel"))
         {
-            PlayerInfo pi = player.GetComponent<PlayerInfo>();
+            PlayerManager pi = player.GetComponent<PlayerManager>();
             health -= pi.damage;
             Debug.Log("ouch");
         }

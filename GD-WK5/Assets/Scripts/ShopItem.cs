@@ -65,12 +65,12 @@ public class ShopItem : MonoBehaviour
             return;
         }
 
-        if (CoinManager.Instance.SpendCoins(price)) 
+        if (PlayerManager.Instance.SpendCoins(price)) 
         {
             // uncomment this line when you have upgrade functions
             onPurchase?.Invoke();
             level++;
-            ShopManager.Instance.UpdateUI();
+            //ShopManager.Instance.UpdateUI();
             UpdatePrice();
         } 
         else

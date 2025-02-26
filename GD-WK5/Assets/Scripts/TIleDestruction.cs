@@ -38,12 +38,12 @@ public class TileDestruction : MonoBehaviour
             if (tileAtPosition == ironOre)
             {
                 Debug.Log("mine iron ore");
-                PlayerManager.Instance.AddResource("Gold", 5);
+                PlayerManager.Instance.AddCoins(5);
             }
             else if (tileAtPosition == goldOre)
             {
                 Debug.Log("mine gold ore");
-                PlayerManager.Instance.AddResource("Gold", 10);
+                PlayerManager.Instance.AddCoins(10);
             }
 
             tilemap.SetTile(cellPos, null);  // Replace with empty tile

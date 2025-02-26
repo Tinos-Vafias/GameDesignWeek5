@@ -10,7 +10,6 @@ public class ShopManager : MonoBehaviour
     public TMP_Text playerCoinsText;
     public ShopItem[] shopItems; 
     
-    public PlayerInfo playerInfo;
     public Hurtboxes hurtboxes;
     void Awake()
     {
@@ -31,6 +30,12 @@ public class ShopManager : MonoBehaviour
         
     }
 
+    void Update()
+    {
+        UpdateUI();
+    }
+
+
     public void UpdateUI()
     {
         UpdateCoins();
@@ -38,10 +43,10 @@ public class ShopManager : MonoBehaviour
 
     void SetupShopItems()
     {
-        shopItems[0].Setup("Shovel Strength", "Increases shovel strength", 20, 1, playerInfo.UpgradeDamage);
+        shopItems[0].Setup("Shovel Strength", "Increases shovel strength", 20, 1, PlayerManager.Instance.UpgradeDamage);
         shopItems[1].Setup("Shovel Range", "Increase shovel radius", 15, 1, hurtboxes.UpgradeRange);
-        shopItems[2].Setup("Jetpack Strength", "Increase jetpack flight time", 25, 2, playerInfo.UpgradeJetpack);
-        shopItems[3].Setup("Light Range", "Increase light radius", 30, 2, playerInfo.UpgradeDamage);
+        shopItems[2].Setup("Jetpack Strength", "Increase jetpack flight time", 25, 1, PlayerManager.Instance.UpgradeJetpack);
+        shopItems[3].Setup("Light Range", "Increase light radius", 30, 2, PlayerManager.Instance.UpgradeDamage);
 
         // example shop item setup when you have upgrade functions
         // shopItems[0].Setup(
@@ -54,7 +59,7 @@ public class ShopManager : MonoBehaviour
 
     void UpdateCoins() 
     {
-        playerCoinsText.text = $"${CoinManager.Instance.GetCoins()}";
+        playerCoinsText.text = $"${PlayerManager.Instance.GetCoins()}";
     }
 
     public void GoToNextScene()
