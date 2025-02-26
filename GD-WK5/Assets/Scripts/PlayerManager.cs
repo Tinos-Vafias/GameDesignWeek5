@@ -15,6 +15,8 @@ public class PlayerManager : MonoBehaviour
     private float maxFlyTime = 1.5f;
     private float flyTimeRemaining;
 
+    private float killzone = -5f;
+
     [SerializeField] private Rigidbody2D rb;
 
     private int coins;
@@ -53,6 +55,15 @@ public class PlayerManager : MonoBehaviour
         }
         else {
             flyTimeRemaining = maxFlyTime;
+        }
+
+        // Kill zone kills player
+        if (transform.position.y < killzone)
+        {
+            health -= 5;
+
+            if (health <= 0) SceneManager.LoadScene("ShopScene");
+
         }
     }   
 
