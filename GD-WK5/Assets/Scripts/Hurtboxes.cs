@@ -1,49 +1,120 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Hurtboxes : MonoBehaviour
+public class Hurtboxes: MonoBehaviour
 {
-    public GameObject rightHurtbox;
-    public GameObject leftHurtbox;
-    public GameObject downHurtbox;
+    public static Hurtboxes Instance { get; private set; }
 
-    void Start()
+    private GameObject rightHurtbox;
+    private GameObject leftHurtbox;
+    private GameObject downHurtbox;
+
+    private int rangeLevel = 0;   // ✅ Tracks the shovel range upgrade level
+    private int rangeBasePrice = 10;  // ✅ Base price for upgrading range
+
+    private void Awake()
     {
-        // Ensure all hurtboxes are disabled initially
-        if (rightHurtbox != null)
-            rightHurtbox.SetActive(false);
-        if (leftHurtbox != null)
-            leftHurtbox.SetActive(false);
-        if (downHurtbox != null)
-            downHurtbox.SetActive(false);
-        
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;  // ✅ Listen for scene changes
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    void Update()
+    private void Start()
     {
-        // Enable the right hurtbox when the right arrow is held down, disable otherwise.
+        FindHurtboxes();  // ✅ Find hurtboxes dynamically
+        DisableHurtboxes();
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        FindHurtboxes();  // ✅ Find hurtboxes again in new scene
+        ApplyHurtboxUpgrades();  // ✅ Reapply upgrade
+    }
+
+    private void FindHurtboxes()
+    {
+        rightHurtbox = GameObject.Find("RightHurtbox");
+        leftHurtbox = GameObject.Find("LeftHurtbox");
+        downHurtbox = GameObject.Find("DownHurtbox");
+
+        if (rightHurtbox == null || leftHurtbox == null || downHurtbox == null)
+        {
+            Debug.LogWarning("Some hurtboxes could not be found! Make sure they exist in the scene.");
+        }
+    }
+
+    private void DisableHurtboxes()
+    {
+        if (rightHurtbox != null) rightHurtbox.SetActive(false);
+        if (leftHurtbox != null) leftHurtbox.SetActive(false);
+        if (downHurtbox != null) downHurtbox.SetActive(false);
+    }
+
+    private void Update()
+    {
         if (rightHurtbox != null && leftHurtbox != null && downHurtbox != null)
+        {
             rightHurtbox.SetActive(Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.Space));
-
-        // Enable the left hurtbox when the left arrow is held down, disable otherwise.
-        if (rightHurtbox != null && leftHurtbox != null && downHurtbox != null)
             leftHurtbox.SetActive(Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.Space));
-
-        // Enable the down hurtbox when the down arrow is held down, disable otherwise.
-        if (rightHurtbox != null && leftHurtbox != null && downHurtbox != null)
             downHurtbox.SetActive(Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.Space));
+        }
     }
 
     public void UpgradeRange()
     {
-        rightHurtbox.transform.position += new Vector3(0.1f, 0.1f, 0);
-        rightHurtbox.transform.localScale += new Vector3(.25f, .25f, 0);
-        
-        leftHurtbox.transform.position -= new Vector3(0.1f, -0.1f, 0);
-        leftHurtbox.transform.localScale += new Vector3(.25f, .25f, 0);
-        
-        downHurtbox.transform.position -= new Vector3(0, 0.1f, 0);
-        downHurtbox.transform.localScale += new Vector3(.25f, .25f, 0);
-        
-        Debug.Log("upgraded");
+        rangeLevel++;  // ✅ Increment level
+        ApplyHurtboxUpgrades();
+        Debug.Log("Shovel range upgraded! New Level: " + rangeLevel);
+    }
+
+    private void ApplyHurtboxUpgrades()
+    {
+        if (rightHurtbox == null || leftHurtbox == null || downHurtbox == null)
+        {
+            FindHurtboxes();  // ✅ Ensure hurtboxes are found before applying upgrades
+        }
+
+        float positionIncrease = 0.1f * rangeLevel;
+        float scaleIncrease = 0.25f * rangeLevel;
+
+        if (rightHurtbox != null)
+        {
+            rightHurtbox.transform.position += new Vector3(positionIncrease, positionIncrease, 0);
+            rightHurtbox.transform.localScale += new Vector3(scaleIncrease, scaleIncrease, 0);
+        }
+
+        if (leftHurtbox != null)
+        {
+            leftHurtbox.transform.position -= new Vector3(positionIncrease, -positionIncrease, 0);
+            leftHurtbox.transform.localScale += new Vector3(scaleIncrease, scaleIncrease, 0);
+        }
+
+        if (downHurtbox != null)
+        {
+            downHurtbox.transform.position -= new Vector3(0, positionIncrease, 0);
+            downHurtbox.transform.localScale += new Vector3(scaleIncrease, scaleIncrease, 0);
+        }
+    }
+
+    public int GetRangeLevel()
+    {
+        return rangeLevel;
+    }
+
+    public int GetRangePrice()
+    {
+        return rangeBasePrice * (int)Mathf.Pow(10, rangeLevel);
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }

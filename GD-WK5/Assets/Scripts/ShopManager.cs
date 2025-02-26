@@ -9,8 +9,6 @@ public class ShopManager : MonoBehaviour
     
     public TMP_Text playerCoinsText;
     public ShopItem[] shopItems; 
-    
-    public Hurtboxes hurtboxes;
     void Awake()
     {
         if (Instance == null)
@@ -27,7 +25,6 @@ public class ShopManager : MonoBehaviour
     {
         UpdateUI();
         SetupShopItems();
-        
     }
 
     void Update()
@@ -43,18 +40,33 @@ public class ShopManager : MonoBehaviour
 
     void SetupShopItems()
     {
-        shopItems[0].Setup("Shovel Strength", "Increases shovel strength", 20, 1, PlayerManager.Instance.UpgradeDamage);
-        shopItems[1].Setup("Shovel Range", "Increase shovel radius", 15, 1, hurtboxes.UpgradeRange);
-        shopItems[2].Setup("Jetpack Strength", "Increase jetpack flight time", 25, 1, PlayerManager.Instance.UpgradeJetpack);
-        shopItems[3].Setup("Light Range", "Increase light radius", 30, 2, PlayerManager.Instance.UpgradeDamage);
+        shopItems[0].Setup(
+            "Shovel Strength", 
+            "Increases shovel strength", 
+            ShovelDamageManager.Instance.GetDamagePrice(), 
+            ShovelDamageManager.Instance.GetDamageLevel(), 
+            ShovelDamageManager.Instance.UpgradeDamage);
 
-        // example shop item setup when you have upgrade functions
-        // shopItems[0].Setup(
-        //     "Shovel Strength", // name
-        //     "Increases shovel strength", // description
-        //     Player.Instance.GetShovelStrengthPrice(), // current price, if level 1 may be 10, if level 2 may be 100 
-        //     Player.Instance.GetShovelStrengthLevel(), // current level, helps shop item stop player from buying past max level
-        //     () => Player.Instance.UpgradeShovelStrength()); // method to be called after purchase. should upgrade stats
+        shopItems[1].Setup(
+            "Shovel Range", 
+            "Increase shovel radius", 
+            Hurtboxes.Instance.GetRangePrice(), 
+            Hurtboxes.Instance.GetRangeLevel(), 
+            Hurtboxes.Instance.UpgradeRange);  
+
+        shopItems[2].Setup(
+            "Jetpack Strength", 
+            "Increase jetpack flight time", 
+            JetpackManager.Instance.GetJetpackPrice(), 
+            JetpackManager.Instance.GetJetpackLevel(), 
+            JetpackManager.Instance.UpgradeJetpack);
+
+        shopItems[3].Setup(
+            "Light Range", 
+            "Increase light radius", 
+            LightManager.Instance.GetPrice(), 
+            LightManager.Instance.GetLevel(), 
+            LightManager.Instance.UpgradeLightRadius);
     }
 
     void UpdateCoins() 
