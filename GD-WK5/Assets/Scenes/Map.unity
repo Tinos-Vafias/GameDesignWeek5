@@ -605,6 +605,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 253530319469811737, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1288402355131460048, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 0.75
@@ -678,6 +682,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2145995542799053531, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
+      propertyPath: goldOre
+      value: 
+      objectReference: {fileID: 11400000, guid: 059979ea8dab1b949a78759c2628c41b, type: 2}
+    - target: {fileID: 2145995542799053531, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
+      propertyPath: ironOre
+      value: 
+      objectReference: {fileID: 11400000, guid: 457601fdaa128da43a142d6548e61626, type: 2}
+    - target: {fileID: 2145995542799053531, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
       propertyPath: tilemap
       value: 
       objectReference: {fileID: 2125043617}
@@ -697,6 +709,30 @@ PrefabInstance:
       propertyPath: groundLayer.m_Bits
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 3536556367703883790, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3536556367703883790, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
+      propertyPath: m_Color.b
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 3536556367703883790, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
+      propertyPath: m_Color.g
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 3536556367703883790, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
+      propertyPath: m_Color.r
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 4198154395488126488, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
+      propertyPath: goldOre
+      value: 
+      objectReference: {fileID: 11400000, guid: 059979ea8dab1b949a78759c2628c41b, type: 2}
+    - target: {fileID: 4198154395488126488, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
+      propertyPath: ironOre
+      value: 
+      objectReference: {fileID: 11400000, guid: 457601fdaa128da43a142d6548e61626, type: 2}
     - target: {fileID: 4198154395488126488, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
       propertyPath: tilemap
       value: 
@@ -714,12 +750,24 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5437452455775004020, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
+      propertyPath: goldOre
+      value: 
+      objectReference: {fileID: 11400000, guid: 059979ea8dab1b949a78759c2628c41b, type: 2}
+    - target: {fileID: 5437452455775004020, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
+      propertyPath: ironOre
+      value: 
+      objectReference: {fileID: 11400000, guid: 457601fdaa128da43a142d6548e61626, type: 2}
+    - target: {fileID: 5437452455775004020, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
       propertyPath: tilemap
       value: 
       objectReference: {fileID: 2125043617}
     - target: {fileID: 8385107997521888231, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053070465212508341, guid: 4535c7049f7fa75458da96264eb65e85, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

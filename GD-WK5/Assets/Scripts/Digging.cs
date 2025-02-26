@@ -5,6 +5,8 @@ public class Digging : MonoBehaviour
 {
     [SerializeField] private Tilemap tilemap;  // Reference to the Tilemap
     [SerializeField] private TileBase emptyTile; // Tile to replace with (empty space)
+    [SerializeField] private TileBase ironOre;
+    [SerializeField] private TileBase goldOre;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -46,6 +48,17 @@ public class Digging : MonoBehaviour
                 // If a tile exists at this cell, remove it.
                 if (tileAtPosition != null)
                 {
+                    // Determine resource type
+                    if (tileAtPosition == ironOre)
+                    {
+                        Debug.Log("mine iron ore");
+                        PlayerManager.Instance.AddCoins(5);
+                    }
+                    else if (tileAtPosition == goldOre)
+                    {
+                        Debug.Log("mine gold ore");
+                        PlayerManager.Instance.AddCoins(10);
+                    }
                     tilemap.SetTile(cellPos, null);
                     // Optionally, add logic here to increase gold/iron.
                 }
